@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://kg4oayddwy5m"]
 
-[ext_resource type="Script" uid="uid://bog6dynvhhs7g" path="res://character_body_2d.gd" id="1_f5hnf"]
+[ext_resource type="Script" uid="uid://bog6dynvhhs7g" path="res://Pawns/player.gd" id="1_f5hnf"]
 [ext_resource type="Texture2D" uid="uid://cdxjpkksgbicj" path="res://Art/Placeholder/Placeholder.png" id="2_f5hnf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ohw4"]
