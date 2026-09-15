@@ -23,6 +23,10 @@ window/stretch/aspect="expand"
 
 project/assembly_name="The First"
 
+[gui]
+
+theme/custom_font="uid://cc8y0u1vjkuu4"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
