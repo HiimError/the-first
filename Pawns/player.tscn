@@ -2,17 +2,35 @@
 
 [ext_resource type="Script" uid="uid://bog6dynvhhs7g" path="res://Pawns/player.gd" id="1_f5hnf"]
 [ext_resource type="Texture2D" uid="uid://cdxjpkksgbicj" path="res://Art/Placeholder/Placeholder.png" id="2_f5hnf"]
+[ext_resource type="Texture2D" uid="uid://bk65spt7lrkit" path="res://Art/UI/ButtonHovered-Grey.png" id="3_kbumq"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7ohw4"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5hnf"]
+height = 32.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5hnf"]
+size = Vector2(20, 28)
 
 [node name="Player" type="CharacterBody2D" unique_id=1063448733]
 script = ExtResource("1_f5hnf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861727466]
-position = Vector2(0, -7)
 texture = ExtResource("2_f5hnf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475858175]
-shape = SubResource("CircleShape2D_7ohw4")
+shape = SubResource("CapsuleShape2D_f5hnf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=571535966]
+zoom = Vector2(2, 2)
+
+[node name="AttackRotPoint" type="Node2D" parent="." unique_id=7590251]
+
+[node name="Area2D" type="Area2D" parent="AttackRotPoint" unique_id=1426926037]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRotPoint/Area2D" unique_id=1235872223]
+position = Vector2(24, 0)
+shape = SubResource("RectangleShape2D_f5hnf")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackRotPoint" unique_id=107530701]
+position = Vector2(24, 0)
+scale = Vector2(0.22, 0.29999998)
+texture = ExtResource("3_kbumq")

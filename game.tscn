@@ -16,3 +16,5 @@ texture = ExtResource("2_feb5d")
 position = Vector2(0, -9)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1117145705]
+
+[connection signal="player_died" from="Player" to="." method="_player_died"]
