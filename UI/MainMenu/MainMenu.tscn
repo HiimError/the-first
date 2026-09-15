@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dd3kptnyt481r"]
+
+[ext_resource type="Script" uid="uid://1tlfoy83odcl" path="res://UI/MainMenu/main_menu.gd" id="1_8fkdr"]
+[ext_resource type="AudioStream" uid="uid://dh0gkwr51snr" path="res://Audio/Sfx/UI/ButtonClick.wav" id="2_fw0vt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5h6i"]
+font_size = 32
+
+[node name="MainMenu" type="Control" unique_id=944666773 node_paths=PackedStringArray("click_sound")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8fkdr")
+click_sound = NodePath("AudioStreamPlayer2D")
+
+[node name="Panel" type="Panel" parent="." unique_id=1534719267]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -99.0
+offset_right = 155.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=664036580]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1418086983]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "The First"
+label_settings = SubResource("LabelSettings_n5h6i")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="StartGameBttn" type="Button" parent="Panel/VBoxContainer" unique_id=486639107]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start Game"
+
+[node name="QuitGameBttn" type="Button" parent="Panel/VBoxContainer" unique_id=684768973]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=944577655]
+stream = ExtResource("2_fw0vt")
+
+[connection signal="pressed" from="Panel/VBoxContainer/StartGameBttn" to="." method="_on_start_game"]
+[connection signal="pressed" from="Panel/VBoxContainer/QuitGameBttn" to="." method="_quit_game"]
