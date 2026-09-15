@@ -1,3 +1,37 @@
 [gd_resource type="Theme" format=3 uid="uid://155iiowjf5pm"]
 
+[ext_resource type="Texture2D" uid="uid://ciatn0m6jn06g" path="res://Art/UI/Panel1.png" id="1_8s26i"]
+[ext_resource type="Texture2D" uid="uid://bk65spt7lrkit" path="res://Art/UI/ButtonHovered-Grey.png" id="1_565jq"]
+[ext_resource type="StyleBox" uid="uid://cbjydug2rljf6" path="res://Themes/ButtonNormalTexture.tres" id="1_vjm3s"]
+[ext_resource type="Texture2D" uid="uid://byaa1nvdboybk" path="res://Art/UI/ButtonPressed-Grey.png" id="3_4hf2l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hf2l"]
+texture = ExtResource("1_565jq")
+texture_margin_left = 17.0
+texture_margin_top = 17.0
+texture_margin_right = 17.0
+texture_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_565jq"]
+texture = ExtResource("3_4hf2l")
+texture_margin_left = 17.0
+texture_margin_top = 17.0
+texture_margin_right = 17.0
+texture_margin_bottom = 17.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wrmaf"]
+texture = ExtResource("1_8s26i")
+texture_margin_left = 17.0
+texture_margin_top = 17.0
+texture_margin_right = 17.0
+texture_margin_bottom = 17.0
+expand_margin_left = 17.0
+expand_margin_top = 17.0
+expand_margin_right = 17.0
+expand_margin_bottom = 17.0
+
 [resource]
+Button/styles/hover = SubResource("StyleBoxTexture_4hf2l")
+Button/styles/normal = ExtResource("1_vjm3s")
+Button/styles/pressed = SubResource("StyleBoxTexture_565jq")
+Panel/styles/panel = SubResource("StyleBoxTexture_wrmaf")

@@ -25,6 +25,7 @@ project/assembly_name="The First"
 
 [gui]
 
+theme/custom="uid://155iiowjf5pm"
 theme/custom_font="uid://cc8y0u1vjkuu4"
 
 [physics]

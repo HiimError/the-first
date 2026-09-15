@@ -44,7 +44,7 @@ layout_mode = 2
 text = "The First"
 label_settings = SubResource("LabelSettings_n5h6i")
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="StartGameBttn" type="Button" parent="Panel/VBoxContainer" unique_id=486639107]
 layout_mode = 2
