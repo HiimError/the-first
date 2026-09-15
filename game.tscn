@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cnl7kjx2g6k0p" path="res://game.gd" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://ciatn0m6jn06g" path="res://Art/UI/Panel1.png" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://kg4oayddwy5m" path="res://Pawns/player.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://cxgvt7sfbri41" path="res://Pawns/Dev/debug_pawn.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Node2D" unique_id=1731554384]
 script = ExtResource("1_80nbo")
@@ -16,5 +17,9 @@ texture = ExtResource("2_feb5d")
 position = Vector2(0, -9)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1117145705]
+
+[node name="DebugPawn" parent="." unique_id=1955359436 instance=ExtResource("4_fc0e3")]
+position = Vector2(101, -144)
+health = 100.0
 
 [connection signal="player_died" from="Player" to="." method="_player_died"]

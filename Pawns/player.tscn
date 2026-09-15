@@ -34,3 +34,5 @@ shape = SubResource("RectangleShape2D_f5hnf")
 position = Vector2(24, 0)
 scale = Vector2(0.22, 0.29999998)
 texture = ExtResource("3_kbumq")
+
+[node name="AttackReset" type="Timer" parent="." unique_id=1656335700]
