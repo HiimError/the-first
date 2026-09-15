@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://wv6d8dsqneyr"]
 
 [ext_resource type="Script" uid="uid://cnl7kjx2g6k0p" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://ciatn0m6jn06g" path="res://Art/UI/Panel1.png" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://kg4oayddwy5m" path="res://Pawns/player.tscn" id="3_fc0e3"]
 
 [node name="Game" type="Node2D" unique_id=1731554384]
 script = ExtResource("1_80nbo")
+
+[node name="Panel1" type="Sprite2D" parent="." unique_id=1714068822]
+position = Vector2(0, -13)
+scale = Vector2(6.8599997, 6.659999)
+texture = ExtResource("2_feb5d")
+
+[node name="Player" parent="." unique_id=1063448733 instance=ExtResource("3_fc0e3")]
+position = Vector2(0, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1117145705]
