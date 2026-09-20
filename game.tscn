@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://wv6d8dsqneyr"]
 
 [ext_resource type="Script" uid="uid://cnl7kjx2g6k0p" path="res://game.gd" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://ciatn0m6jn06g" path="res://Art/UI/Panel1.png" id="2_feb5d"]
+[ext_resource type="Texture2D" uid="uid://cme2wbtubsyht" path="res://Art/Placeholder/Arena.png" id="2_ryrav"]
 [ext_resource type="PackedScene" uid="uid://kg4oayddwy5m" path="res://Pawns/player.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cxgvt7sfbri41" path="res://Pawns/Dev/debug_pawn.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://dywhcdtssfcoa" path="res://Pawns/Enemies/Goblin/Goblin.tscn" id="5_7jktm"]
@@ -14,20 +14,16 @@ size = Vector2(22, 528)
 size = Vector2(546, 12)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rxaq7"]
-vertices = PackedVector2Array(242, -248.02344, 242, 216, -243.03125, 216, -243.96094, -248.96875)
+vertices = PackedVector2Array(199, 199, -199, 199, -199, -199, 199, -199)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-259, -264, 257, -263, 257, 231, -258, 231)])
-agent_radius = 15.0
+outlines = Array[PackedVector2Array]([PackedVector2Array(-224, -224, 224, -224, 224, 224, -224, 224)])
+agent_radius = 25.0
 
 [node name="Game" type="Node2D" unique_id=1731554384]
 script = ExtResource("1_80nbo")
 
-[node name="Panel1" type="Sprite2D" parent="." unique_id=1714068822]
-position = Vector2(0, -13)
-scale = Vector2(6.8599997, 6.659999)
-texture = ExtResource("2_feb5d")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1117145705]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2047448649]
+texture = ExtResource("2_ryrav")
 
 [node name="DebugPawn" parent="." unique_id=1955359436 instance=ExtResource("4_fc0e3")]
 position = Vector2(101, -144)
@@ -36,19 +32,19 @@ health = 100.0
 [node name="LevelBounds" type="StaticBody2D" parent="." unique_id=416029059]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds" unique_id=32734834]
-position = Vector2(-271, -9)
+position = Vector2(-224, 0)
 shape = SubResource("RectangleShape2D_rxaq7")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBounds" unique_id=1881329589]
-position = Vector2(270, -9)
+position = Vector2(224, 0)
 shape = SubResource("RectangleShape2D_rxaq7")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelBounds" unique_id=938020730]
-position = Vector2(0, -271)
+position = Vector2(0, -224)
 shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBounds" unique_id=1580790468]
-position = Vector2(0, 239)
+position = Vector2(0, 224)
 shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="Goblin" parent="." unique_id=347451548 node_paths=PackedStringArray("goal") instance=ExtResource("5_7jktm")]
@@ -68,3 +64,5 @@ enabled = false
 [node name="Player" parent="." unique_id=1063448733 instance=ExtResource("3_fc0e3")]
 position = Vector2(-81, -111)
 speed = 400.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=64788960]
