@@ -5,6 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://kg4oayddwy5m" path="res://Pawns/player.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cxgvt7sfbri41" path="res://Pawns/Dev/debug_pawn.tscn" id="4_fc0e3"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxaq7"]
+size = Vector2(22, 528)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
+size = Vector2(546, 12)
+
 [node name="Game" type="Node2D" unique_id=1731554384]
 script = ExtResource("1_80nbo")
 
@@ -21,5 +27,23 @@ position = Vector2(0, -9)
 [node name="DebugPawn" parent="." unique_id=1955359436 instance=ExtResource("4_fc0e3")]
 position = Vector2(101, -144)
 health = 100.0
+
+[node name="LevelBounds" type="StaticBody2D" parent="." unique_id=416029059]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBounds" unique_id=32734834]
+position = Vector2(-271, -9)
+shape = SubResource("RectangleShape2D_rxaq7")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBounds" unique_id=1881329589]
+position = Vector2(270, -9)
+shape = SubResource("RectangleShape2D_rxaq7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelBounds" unique_id=938020730]
+position = Vector2(0, -271)
+shape = SubResource("RectangleShape2D_fc0e3")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBounds" unique_id=1580790468]
+position = Vector2(0, 239)
+shape = SubResource("RectangleShape2D_fc0e3")
 
 [connection signal="player_died" from="Player" to="." method="_player_died"]
