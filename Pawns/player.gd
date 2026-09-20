@@ -66,4 +66,5 @@ func _physics_process(_delta: float) -> void:
 # this function takes in the direction the player is moving 
 # and rotates the attack box to face the same direction as the movement
 func update_attack_rot(direction: Vector2):
-	$AttackRotPoint.rotation = direction.angle()
+	var rounded = snapped(rad_to_deg(direction.angle()), 90)
+	$AttackRotPoint.rotation_degrees = rounded

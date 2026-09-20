@@ -4,12 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://ciatn0m6jn06g" path="res://Art/UI/Panel1.png" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://kg4oayddwy5m" path="res://Pawns/player.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://cxgvt7sfbri41" path="res://Pawns/Dev/debug_pawn.tscn" id="4_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://dywhcdtssfcoa" path="res://Pawns/Enemies/Goblin/Goblin.tscn" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://6xopss6f2xg6" path="res://dev_move_point.gd" id="6_ryrav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxaq7"]
 size = Vector2(22, 528)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fc0e3"]
 size = Vector2(546, 12)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rxaq7"]
+vertices = PackedVector2Array(242, -248.02344, 242, 216, -243.03125, 216, -243.96094, -248.96875)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-259, -264, 257, -263, 257, 231, -258, 231)])
+agent_radius = 15.0
 
 [node name="Game" type="Node2D" unique_id=1731554384]
 script = ExtResource("1_80nbo")
@@ -18,9 +26,6 @@ script = ExtResource("1_80nbo")
 position = Vector2(0, -13)
 scale = Vector2(6.8599997, 6.659999)
 texture = ExtResource("2_feb5d")
-
-[node name="Player" parent="." unique_id=1063448733 instance=ExtResource("3_fc0e3")]
-position = Vector2(0, -9)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1117145705]
 
@@ -46,4 +51,20 @@ shape = SubResource("RectangleShape2D_fc0e3")
 position = Vector2(0, 239)
 shape = SubResource("RectangleShape2D_fc0e3")
 
-[connection signal="player_died" from="Player" to="." method="_player_died"]
+[node name="Goblin" parent="." unique_id=347451548 node_paths=PackedStringArray("goal") instance=ExtResource("5_7jktm")]
+position = Vector2(-153, 98)
+movement_speed = 200.0
+goal = NodePath("../Player")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=357551982]
+navigation_polygon = SubResource("NavigationPolygon_rxaq7")
+
+[node name="DevMovePoint" type="Node2D" parent="." unique_id=168227903]
+script = ExtResource("6_ryrav")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=372402186]
+enabled = false
+
+[node name="Player" parent="." unique_id=1063448733 instance=ExtResource("3_fc0e3")]
+position = Vector2(-81, -111)
+speed = 400.0

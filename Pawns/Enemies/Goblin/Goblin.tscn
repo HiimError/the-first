@@ -1,3 +1,39 @@
 [gd_scene format=3 uid="uid://dywhcdtssfcoa"]
 
+[ext_resource type="Script" uid="uid://tdkqua3q3gpj" path="res://Pawns/Enemies/Goblin/goblin.gd" id="1_v3144"]
+[ext_resource type="Texture2D" uid="uid://cdxjpkksgbicj" path="res://Art/Placeholder/Placeholder.png" id="2_aq3gr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_clu7v"]
+height = 32.0
+
 [node name="Goblin" type="CharacterBody2D" unique_id=347451548]
+script = ExtResource("1_v3144")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=982671455]
+self_modulate = Color(0.36078432, 1, 0.36078432, 1)
+texture = ExtResource("2_aq3gr")
+offset = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1318021264]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_clu7v")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=560531812]
+path_desired_distance = 3.0
+target_desired_distance = 3.0
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="NavTimer" type="Timer" parent="." unique_id=593689970]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="DashTimer" type="Timer" parent="." unique_id=440077974]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="NavTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="start_dash"]
