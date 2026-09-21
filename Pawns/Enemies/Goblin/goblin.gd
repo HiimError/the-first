@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var damage: float = 10
 @export var movement_speed: float = 300
 @export var dash_speed_increase: float = 600
 @export var goal: Node2D = null
@@ -9,6 +10,15 @@ extends CharacterBody2D
 var dashing: bool = false
 var dash_pos
 
+func apply_damage(modifier: float = 0):
+	for child in $AttackRotPoint/DamageArea.get_overlapping_bodies():
+		if child.has_method("take_damage"):
+			child.call("take_damage", damage + modifier)
+
+func dash_attack():
+	print("Dash Attacking")
+	apply_damage(15)
+	
 
 func take_damage(amount: int) -> void:
 	health -= amount
@@ -28,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	if dashing:
 		if global_position.distance_to(dash_pos) < 30:
 			dashing = false
+			dash_attack()
 			$DashTimer.start()
 			pass
 		

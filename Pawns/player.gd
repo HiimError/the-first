@@ -11,6 +11,10 @@ signal player_died
 
 var dealing_damage: bool = false
 
+func _ready() -> void:
+	health = max_health
+	$CanvasLayer/Control/Label.text = "Health: {0}/{1}".format([health, max_health])
+
 func attempt_attack():
 	# Check if attack cooldown has finished
 	if $AttackReset.time_left != 0:
@@ -33,6 +37,7 @@ func attempt_attack():
 # this function is used to subtracting health and checking if dead
 func take_damage(amount: int) -> void:
 	health -= amount
+	$CanvasLayer/Control/Label.text = "Health: {0}/{1}".format([health, max_health])
 	if health <= 0:
 		die()
 

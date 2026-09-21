@@ -49,7 +49,6 @@ shape = SubResource("RectangleShape2D_fc0e3")
 
 [node name="Goblin" parent="." unique_id=347451548 node_paths=PackedStringArray("goal") instance=ExtResource("5_7jktm")]
 position = Vector2(-153, 98)
-movement_speed = 200.0
 goal = NodePath("../Player")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=357551982]
@@ -63,6 +62,3 @@ enabled = false
 
 [node name="Player" parent="." unique_id=1063448733 instance=ExtResource("3_fc0e3")]
 position = Vector2(-81, -111)
-speed = 400.0
-
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=64788960]

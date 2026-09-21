@@ -10,8 +10,14 @@ height = 32.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f5hnf"]
 size = Vector2(20, 28)
 
+[sub_resource type="LabelSettings" id="LabelSettings_kbumq"]
+font_size = 40
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=1063448733]
 script = ExtResource("1_f5hnf")
+speed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1861727466]
 texture = ExtResource("2_f5hnf")
@@ -36,3 +42,26 @@ scale = Vector2(0.22, 0.29999998)
 texture = ExtResource("3_kbumq")
 
 [node name="AttackReset" type="Timer" parent="." unique_id=1656335700]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1188621462]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1530183886]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=952503702]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 40.0
+grow_vertical = 0
+text = "Health: 0/100"
+label_settings = SubResource("LabelSettings_kbumq")
